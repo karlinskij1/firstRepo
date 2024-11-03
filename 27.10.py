@@ -1,5 +1,9 @@
 class NameSurname:
-    def __init__ (self, name, surname):
+    def __init__(self, name, surname):
+        if(type(name) != str):
+            raise TypeError(f"Name is not a string ")
+        if(type(surname) != str):
+            raise TypeError(f"Surname is not a string '{type(surname) }'")
         self.name = name
         self.surname = surname
 
@@ -21,10 +25,12 @@ class Student:
         self.age += 1
         print(f'Happy Birthday to {self.ns.name}. Now you {self.age}!')
 
-print(f'before creating Student object {Student.student_amount}')
-first_student = Student("vlad", "karlinskij", 12)
-first_student.printStudent()
-print(f'after creating Student object {Student.student_amount}')
+
+try:
+    first_student = Student("vlad", True, 12)
+except Exception as error:
+    print(error)
 
 
-first_student.Birthday()
+print("Next code")
+#first_student.Birthday()
