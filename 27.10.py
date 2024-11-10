@@ -1,3 +1,9 @@
+import logging
+logging.basicConfig(level=logging.DEBUG,
+                    filename='logs.log',
+                    filemode='w',
+                    format="%(levelname)s:%(asctime)s - %(message)s")
+
 class NameSurname:
     def __init__(self, name, surname):
         if(type(name) != str):
@@ -26,11 +32,13 @@ class Student:
         print(f'Happy Birthday to {self.ns.name}. Now you {self.age}!')
 
 
+
 try:
-    first_student = Student("vlad", True, 12)
+
+    first_student = Student("Vlad", "Karlinskyi", 12)
+    logging.info(f'Create new student {first_student.ns.name} {first_student.ns.surname}')
+    second_student = Student("Oleg", True, 12)
 except Exception as error:
     print(error)
+    logging.error(error)
 
-
-print("Next code")
-#first_student.Birthday()

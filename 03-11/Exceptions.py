@@ -12,6 +12,9 @@ except NameError:
     print("Такої змінної не існує")
 except ValueError:
     print("ERROR| помилка з перетворенням до integer")
+except:
+    print("Error")
+
 
 
 print("Next code")
